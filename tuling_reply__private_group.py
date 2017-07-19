@@ -31,20 +31,32 @@ def download_files(msg):
 def text_reply(msg):
     # 发送给文件助手，防止对方撤回
     itchat.send('%s: %s' % (msg['ActualNickName'], msg['Text']), 'filehelper')
+    
+    # 获取名字中含有特定字符的群聊，返回值为一个字典的列表
+    # list = itchat.search_chatrooms(name=u'测试一下')
+    # for index in list:
+        # print index
+
     # 如果有人@我
-    if msg['isAt']:
+    # if msg['isAt']:
         # 发送给文件助手，防止对方撤回
         # itchat.send('%s: %s' % (msg['ActualNickName'], msg['Text']), 'filehelper')
-        defaultReply = u'你好！'
-        reply = u'小小：'+get_response(msg['Text'])+'\n \n'+u'PS：我是智能机器人小小，主人在闭关学习了。有急事请拨打电话18826077893，或者发送电子邮件1214914477@qq.com。不@就不会自动回复。'
-        return reply or defaultReply
+        # defaultReply = u'你好！'
+        # reply = u'小小：'+get_response(msg['Text'])+'\n \n'+u'PS：我是智能机器人小小，主人在闭关学习了。有急事请拨打电话18826077893，或者发送电子邮件1214914477@qq.com。不@就不会自动回复。'
+        # return reply or defaultReply
 
 @itchat.msg_register(TEXT,isFriendChat=True,isGroupChat=False)
 def text_reply(msg):
     # 发送给文件助手，防止对方撤回
-    itchat.send('%s: %s' % (msg['FromUserName'], msg['Text']), 'filehelper')
+    # itchat.send('%s: %s' % (msg['ActualNickName'], msg['Text']), 'filehelper')
+
+    # 将时间戳转化为localtime
+    x = time.localtime(msg['CreateTime'])
+    createTime = time.strftime('%Y-%m-%d %H:%M:%S',x)
+    itchat.send('FromUserName:%s\nToUserName:%s\n\nCreateTime: %s\nText:%s' % (msg['FromUserName'],msg['ToUserName'],createTime, msg['Text']), 'filehelper')
+
     defaultReply = u'你好，智能机器人小小为你服务！'
-    defaultReply2 = u'你好，智能机器人小小为你服务！主人在闭关学习。在周二、周四和周六的22:00会查看一下微信的信息，其余时间均不在线。由此带来不便，请谅解！如有急事，请拨打电话18826077893，或者发送电子邮件1214914477@qq.com。谢谢！\n \n接下来由聪明的小小为你服务：小小会讲故事、讲笑话、成语接龙、做数学运算、新闻资讯、星座运势和聊天对话......'
+    defaultReply2 = u'你好，智能机器人小小为你服务！主人在闭关学习啦，一般在周二、周四和周六的22:00左右可能会查看一下微信的信息，其余时间均不在线。由此带来不便，请谅解！如有急事，请拨打电话或发送短信至18826077893，或者发送电子邮件到1214914477@qq.com。谢谢！\n \n接下来由小小为你服务：小小会讲故事、讲笑话、成语接龙、做数学运算、新闻资讯、星座运势和聊天对话......'
     global userDict
     global userList
     global userFirstChatDateList

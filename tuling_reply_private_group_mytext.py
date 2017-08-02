@@ -56,7 +56,7 @@ def text_reply(msg):
     itchat.send('FromUserName:%s\nToUserName:%s\n\nCreateTime: %s\nText:%s' % (msg['FromUserName'],msg['ToUserName'],createTime, msg['Text']), 'filehelper')
 
     defaultReply = u'你好，智能机器人小小为你服务！'
-    defaultReply2 = u'你好，智能机器人小小为你服务！主人在闭关学习啦，一般在周二、周四和周六的22:00左右可能会查看一下微信的信息，其余时间均不在线。由此带来不便，请谅解！如有急事，请拨打电话或发送短信至18826077893，或者发送电子邮件到1214914477@qq.com。谢谢！\n \n接下来由小小为你服务：小小会讲故事、讲笑话、成语接龙、做数学运算、新闻资讯、星座运势和聊天对话......'
+    defaultReply2 = u'你好，我是智能机器人小小！主人在闭关学习，一般很少查看一下微信的信息。由此带来不便，请谅解！如有急事，请致电或发短信至18826077893。谢谢！\n \n接下来由小小为你服务：小小会讲故事、讲笑话、成语接龙、做数学运算、新闻资讯、星座运势和聊天对话......'
     global userDict
     global userList
     global userFirstChatDateList

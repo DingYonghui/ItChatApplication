@@ -6,7 +6,7 @@
 ## 1.reply_mytext.py
 
 实现的是回复一条自定义的信息。这是回复的就是：我是机器人小小，谢谢！
-
+```
 #coding=utf8
 import requests
 import itchat
@@ -19,10 +19,11 @@ def text_reply(msg):
 # 为了让实验过程更加方便（修改程序不用多次扫码），我们使用热启动
 itchat.auto_login(hotReload=True)
 itchat.run()
+```
 
 ## 2. reply_to_filehelper.py
 实现的是在私聊或群聊时将一条信息发送给文件传输助手。
-
+```
 #coding=utf8
 import requests
 import itchat
@@ -36,11 +37,11 @@ def text_reply(msg):
 # 为了让实验过程更加方便（修改程序不用多次扫码），我们使用热启动
 itchat.auto_login(hotReload=True)
 itchat.run()
-
+```
 
 ## 3.	noreply_listen_private_group
 实现的是将群聊、私聊的信息全部转发到文件传输助手，这样就避免了对方或群里面的人将信息撤回。不过这是将全部信息转发，而不是再有人撤回时再转发，这样会导致文件传输助手的信息很多，需要完善。
-
+```
 #coding=utf8
 import itchat
 from itchat.content import *
@@ -69,10 +70,11 @@ def text_reply(msg):
 
 itchat.auto_login(hotReload=True)
 itchat.run()
+```
 
 ## 4. simple_tuling_reply_private.py
 实现接入了图灵机器人，在私聊时，可以进行智能回复。当然，这是对所有私聊都进行智能回复，但群聊没有实现。
-
+```
 #coding=utf8
 import requests
 import itchat
@@ -112,10 +114,11 @@ def tuling_reply(msg):
 # 为了让实验过程更加方便（修改程序不用多次扫码），我们使用热启动
 itchat.auto_login(hotReload=True)
 itchat.run()
-
+```
 
 ## 5. tuling_reply_group.py
 实现的是在群聊中，只有被@的时候才会智能地自动回复。
+```
 import itchat
 from itchat.content import *
 import requests
@@ -149,10 +152,11 @@ def text_reply(msg):
 
 itchat.auto_login(hotReload=True)
 itchat.run()
+```
 ## 6. tuling_reply_private_group_mytext.py
 实现了更自定义的自动回复：在群聊中，只是将信息转发到文件传输助手，而在私聊中，不同的人在第一次私聊时，会先回复自定义的信息，本例中是“我是智能机器人小小，主人在闭关学习了。有急事请拨打电……”，接下来才进入了智能自动回复，这样就可以在第一次别人第一次私聊自己，但自己又不在时可以回复自定义信息，避免了智能回复的突兀。二十分钟后，如果同一个人再次私聊，也会再次先回复自定义信息。
 
-
+```
 #coding=utf8
 import itchat
 from itchat.content import *
@@ -252,3 +256,4 @@ def text_reply(msg):
 
 itchat.auto_login(hotReload=True)
 itchat.run()
+```

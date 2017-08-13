@@ -16,12 +16,12 @@
 
 ## 效果演示
 ### 启动时
-![image](https://github.com/DingYonghui/ItChatApplication/blob/master/1.jpg)
-![image](https://github.com/DingYonghui/ItChatApplication/blob/master/2.jpg)
+![image](https://github.com/DingYonghui/ItChatApplication/blob/master/screenshots/1.jpg)
+![image](https://github.com/DingYonghui/ItChatApplication/blob/master/screenshots/2.jpg)
 
 ### 智能自动回复
-![image](https://github.com/DingYonghui/ItChatApplication/blob/master/3.jpg)
-![image](https://github.com/DingYonghui/ItChatApplication/blob/master/4.jpg)
+![image](https://github.com/DingYonghui/ItChatApplication/blob/master/screenshots/3.jpg)
+![image](https://github.com/DingYonghui/ItChatApplication/blob/master/screenshots/4.jpg)
 
 ## py脚本说明
 

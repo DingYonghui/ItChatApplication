@@ -2,7 +2,7 @@
 ## 应用简介
 一个基于ItChat的应用。实现原理是模拟登录web端的微信，然后调用ItChat封装好的接口，这些接口也对微信提供给开发者的API进行了封装。然后将其他人发过来的信息转发到图灵机器人（要先去图灵机器人官网申请个KEY），获取回复的数据，再返回给别人。简单来说，就是该应用只是一个代理或者说一个中介。
 
-## 设计技术
+## 涉及技术
 1. python
 - python2或者python3
 - pip
@@ -279,3 +279,8 @@ def text_reply(msg):
 itchat.auto_login(hotReload=True)
 itchat.run()
 ```
+## 如何交流、反馈
+- QQ：1214914477
+- E-mail：1214914477@qq.com or 18826077893@163.com
+- GitHub：https://github.com/DingYonghui/ItChatApplication/
+- 个人网址：http://www.dingyonghui.cn

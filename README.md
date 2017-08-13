@@ -1,9 +1,31 @@
-# ItChatApplication
-一个基于ItChat的应用。实现原理是模拟登录web端的微信，然后调用ItChat封装好的接口，这些接口也对微信提供给开发者的API进行了封装。然后将其他人发过来的信息转发到图灵机器人（要先去申请个KEY），获取回复的数据，再返回给别人。简单来说，就是该应用只是一个代理或者说一个中介。
+# ItChatApplication应用
+## 应用简介
+一个基于ItChat的应用。实现原理是模拟登录web端的微信，然后调用ItChat封装好的接口，这些接口也对微信提供给开发者的API进行了封装。然后将其他人发过来的信息转发到图灵机器人（要先去图灵机器人官网申请个KEY），获取回复的数据，再返回给别人。简单来说，就是该应用只是一个代理或者说一个中介。
 
-# py脚本说明
+## 设计技术
+1. python
+- python2或者python3
+- pip
+- urllib库
+- ItChat库
+2. 其他
+- Linux
+- Xshell
+- SSH Secure File Transfer Client
+- 抓包
 
-## 1.reply_mytext.py
+## 效果演示
+### 启动时
+![image](https://github.com/DingYonghui/ItChatApplication/blob/master/1.jpg)
+![image](https://github.com/DingYonghui/ItChatApplication/blob/master/2.jpg)
+
+### 智能自动回复
+![image](https://github.com/DingYonghui/ItChatApplication/blob/master/3.jpg)
+![image](https://github.com/DingYonghui/ItChatApplication/blob/master/4.jpg)
+
+## py脚本说明
+
+### 1.reply_mytext.py
 
 实现的是回复一条自定义的信息。这是回复的就是：我是机器人小小，谢谢！
 ```
@@ -21,7 +43,7 @@ itchat.auto_login(hotReload=True)
 itchat.run()
 ```
 
-## 2. reply_to_filehelper.py
+### 2. reply_to_filehelper.py
 实现的是在私聊或群聊时将一条信息发送给文件传输助手。
 ```
 #coding=utf8
@@ -39,7 +61,7 @@ itchat.auto_login(hotReload=True)
 itchat.run()
 ```
 
-## 3.	noreply_listen_private_group
+### 3.	noreply_listen_private_group
 实现的是将群聊、私聊的信息全部转发到文件传输助手，这样就避免了对方或群里面的人将信息撤回。不过这是将全部信息转发，而不是再有人撤回时再转发，这样会导致文件传输助手的信息很多，需要完善。
 ```
 #coding=utf8
@@ -72,7 +94,7 @@ itchat.auto_login(hotReload=True)
 itchat.run()
 ```
 
-## 4. simple_tuling_reply_private.py
+### 4. simple_tuling_reply_private.py
 实现接入了图灵机器人，在私聊时，可以进行智能回复。当然，这是对所有私聊都进行智能回复，但群聊没有实现。
 ```
 #coding=utf8
@@ -116,7 +138,7 @@ itchat.auto_login(hotReload=True)
 itchat.run()
 ```
 
-## 5. tuling_reply_group.py
+### 5. tuling_reply_group.py
 实现的是在群聊中，只有被@的时候才会智能地自动回复。
 ```
 import itchat
@@ -153,7 +175,7 @@ def text_reply(msg):
 itchat.auto_login(hotReload=True)
 itchat.run()
 ```
-## 6. tuling_reply_private_group_mytext.py
+### 6. tuling_reply_private_group_mytext.py
 实现了更自定义的自动回复：在群聊中，只是将信息转发到文件传输助手，而在私聊中，不同的人在第一次私聊时，会先回复自定义的信息，本例中是“我是智能机器人小小，主人在闭关学习了。有急事请拨打电……”，接下来才进入了智能自动回复，这样就可以在第一次别人第一次私聊自己，但自己又不在时可以回复自定义信息，避免了智能回复的突兀。二十分钟后，如果同一个人再次私聊，也会再次先回复自定义信息。
 
 ```
